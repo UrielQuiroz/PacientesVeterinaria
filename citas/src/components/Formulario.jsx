@@ -22,11 +22,16 @@ const Formulario = () => {
     //Extraer los valores 
     const { mascota, propietario, fecha, hora, sintomas } = cita;
 
+    const enviarCita = e => {
+        e.preventDefault();
+        console.log("Enviando datos...")
+    }
+
     return ( 
         <Fragment>
             <h2>Crear cita</h2>
 
-            <form>
+            <form onSubmit={enviarCita}>
                 <label>Nombre mascota</label>
                 <input type="text" name="mascota" className="u-full-width" placeholder="Nombre mascota"
                         onChange={actualizarState} value={mascota} />
