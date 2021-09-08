@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import uuid from 'uuid/dist/v4'
 
 const Formulario = () => {
 
@@ -25,6 +26,8 @@ const Formulario = () => {
     //Extraer los valores 
     const { mascota, propietario, fecha, hora, sintomas } = cita;
 
+
+    //Evento submit para cuando el usuario presiona agregar cita
     const enviarCita = e => {
         e.preventDefault();
 
@@ -34,7 +37,12 @@ const Formulario = () => {
             return;
         }
 
-        console.log("Enviando datos...")
+        //ELIMINAR EL MENSAJE DE ERROR PREVIO
+        actualizarError(false);
+
+        //ASIGNAR UN ID
+        cita.id = uuid();
+        console.log(cita);
     }
 
     return ( 
